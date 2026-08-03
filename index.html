@@ -462,6 +462,13 @@ section{position:relative;}
 }
 .pub-link:hover{background:var(--ink);color:var(--bone);border-color:var(--ink);}
 .pub-note{margin-top:28px;font-size:13px;color:var(--text-muted);}
+.pub-congress{margin-top:60px;}
+.pub-congress-title{font-family:var(--serif);font-size:21px;font-weight:400;margin-bottom:24px;}
+.pub-congress-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.pub-congress-item{margin:0;}
+.pub-congress-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;}
+.pub-congress-item figcaption{margin-top:10px;font-size:13px;color:var(--text-muted);}
+@media(max-width:640px){.pub-congress-grid{grid-template-columns:1fr;}}
 
 @media(max-width:640px){
   .pub-card{grid-template-columns:1fr;}
@@ -712,8 +719,8 @@ body.lightbox-open{overflow:hidden;}
       <a href="#medicina">Medicina Estetica</a>
       <a href="#prima-dopo">Prima &amp; Dopo</a>
       <a href="#missioni">Missioni Umanitarie</a>
-      <a href="#pubblicazioni">Pubblicazioni</a>
-      <a href="#studi">Studi</a>
+      <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
+      <a href="#sedi">Sedi</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a href="#prenota" class="btn btn-primary nav-cta">Prenota una visita</a>
@@ -730,8 +737,8 @@ body.lightbox-open{overflow:hidden;}
   <a href="#medicina">Medicina Estetica</a>
   <a href="#prima-dopo">Prima &amp; Dopo</a>
   <a href="#missioni">Missioni Umanitarie</a>
-  <a href="#pubblicazioni">Pubblicazioni</a>
-  <a href="#studi">Studi</a>
+  <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
+  <a href="#sedi">Sedi</a>
   <a href="#faq">FAQ</a>
   <a href="#prenota" class="btn btn-bronze" style="margin-top:12px;">Prenota una visita</a>
 </div>
@@ -1077,6 +1084,15 @@ body.lightbox-open{overflow:hidden;}
     <div class="hg-item">
       <img loading="lazy" src="/images/chirurghi-volontari-di-emergenza-sorrisi-in-ospedale.jpg" alt="Chirurghi volontari di Emergenza Sorrisi in ospedale">
     </div>
+    <div class="hg-item">
+      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-piccolo-paziente-in-sala-operatoria.jpg" alt="Il Dott. Cammalleri con un piccolo paziente in sala operatoria durante una missione">
+    </div>
+    <div class="hg-item">
+      <img loading="lazy" src="/images/il-dott-cammalleri-durante-un-intervento-chirurgico-in-missione.jpg" alt="Il Dott. Cammalleri durante un intervento chirurgico in missione">
+    </div>
+    <div class="hg-item">
+      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-giovane-paziente-durante-una-missione.jpg" alt="Il Dott. Cammalleri con un giovane paziente durante una missione umanitaria">
+    </div>
   </div>
 </section>
 
@@ -1084,7 +1100,7 @@ body.lightbox-open{overflow:hidden;}
 <section id="pubblicazioni" class="pub-section section-pad">
   <div class="wrap">
     <div class="pub-head reveal">
-      <span class="eyebrow">Pubblicazioni Scientifiche</span>
+      <span class="eyebrow">Pubblicazioni e Congressi</span>
       <h2 class="about-title">Ricerca e<br>letteratura clinica.</h2>
       <p class="lede" style="margin-top:22px;">Il Dott. Cammalleri contribuisce alla letteratura scientifica internazionale con studi e case report in ambito maxillo-facciale e chirurgico.</p>
     </div>
@@ -1127,12 +1143,26 @@ body.lightbox-open{overflow:hidden;}
       </div>
     </div>
 
+    <div class="pub-congress reveal">
+      <h3 class="pub-congress-title">Relatore ai congressi internazionali</h3>
+      <div class="pub-congress-grid">
+        <figure class="pub-congress-item">
+          <img loading="lazy" src="/images/il-dott-cammalleri-relatore-al-congresso-eacmfs-roma.jpg" alt="Il Dott. Cammalleri relatore al 27° EACMFS Congress, Roma">
+          <figcaption>27° EACMFS Congress — Roma, 2024</figcaption>
+        </figure>
+        <figure class="pub-congress-item">
+          <img loading="lazy" src="/images/il-dott-cammalleri-al-congresso-eafps-verona.jpg" alt="Il Dott. Cammalleri al 46° Annual Meeting EAFPS, Verona">
+          <figcaption>46° Annual Meeting EAFPS — Verona, 2023</figcaption>
+        </figure>
+      </div>
+    </div>
+
     <p class="pub-note reveal">Per l'elenco completo delle pubblicazioni, consulta il <a href="https://www.researchgate.net/scientific-contributions/Marcello-Cammalleri-2316539722" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--ink);">profilo del Dott. Cammalleri su ResearchGate</a>.</p>
   </div>
 </section>
 
 <!-- ===== STUDI ===== -->
-<section id="studi" class="studi section-pad dark-section">
+<section id="sedi" class="studi section-pad dark-section">
   <div class="wrap">
     <div class="treatments-head reveal">
       <span class="eyebrow eyebrow-light">Dove riceve</span>
@@ -1355,7 +1385,7 @@ body.lightbox-open{overflow:hidden;}
       <p class="footer-tag">Chirurgia Maxillo-Facciale · Chirurgia Estetica · Medicina Estetica</p>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Studi</p>
+      <p class="footer-col-title">Sedi</p>
       <p>Milano — Via Tiraboschi 1</p>
       <p>Verona</p>
       <p>Gela</p>
@@ -1373,7 +1403,7 @@ body.lightbox-open{overflow:hidden;}
       <a href="#chirurgia">Chirurgia Estetica</a>
       <a href="#medicina">Medicina Estetica</a>
       <a href="#missioni">Missioni Umanitarie</a>
-      <a href="#pubblicazioni">Pubblicazioni</a>
+      <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
       <a href="privacy.html">Informativa Privacy</a>
     </div>
   </div>
