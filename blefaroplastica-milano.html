@@ -648,6 +648,11 @@ section{position:relative;}
 .step-num{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--bronze-dark);}
 .step-list-item h4{font-size:16.5px;font-weight:600;margin-bottom:6px;color:var(--ink);font-family:var(--sans);}
 .step-list-item p{font-size:14.5px;color:var(--text-muted);line-height:1.65;}
+.process-photos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px;max-width:760px;}
+.process-photo{margin:0;}
+.process-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;}
+.process-photo figcaption{margin-top:10px;font-size:13px;color:var(--text-muted);}
+@media(max-width:640px){.process-photos{grid-template-columns:1fr;}}
 .other-treatments{margin-top:60px;}
 .other-treatments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:28px;border:1px solid var(--line);}
 .other-treatments-grid a{
@@ -919,11 +924,22 @@ body.lightbox-open{overflow:hidden;}
     </div>
     <div class="reveal">
     <div class="step-list">
-      <div class="step-list-item"><span class="step-num">01</span><div><h4>Anestesia</h4><p>Generalmente locale con sedazione, ambulatoriale o in day surgery.</p></div></div>
-      <div class="step-list-item"><span class="step-num">02</span><div><h4>Incisione nella piega naturale</h4><p>Sulla palpebra superiore l'incisione segue la piega naturale dell'occhio; su quella inferiore viene praticata a filo delle ciglia o internamente.</p></div></div>
-      <div class="step-list-item"><span class="step-num">03</span><div><h4>Rimozione di pelle e grasso in eccesso</h4><p>Viene asportata la quantità di tessuto necessaria a ottenere un profilo naturale, senza tensione eccessiva.</p></div></div>
-      <div class="step-list-item"><span class="step-num">04</span><div><h4>Sutura sottile</h4><p>Le suture vengono posizionate con estrema cura, data la delicatezza della zona, e rimosse dopo pochi giorni.</p></div></div>
+      <div class="step-list-item"><span class="step-num">01</span><div><h4>Marcatura dei punti di repere</h4><p>Prima di iniziare, il Dott. Cammalleri disegna con precisione sulla pelle le linee di incisione, seguendo la piega naturale della palpebra: un passaggio che richiede estrema cura del dettaglio, decisivo per un risultato simmetrico e naturale.</p></div></div>
+      <div class="step-list-item"><span class="step-num">02</span><div><h4>Anestesia</h4><p>Generalmente locale con sedazione, ambulatoriale o in day surgery.</p></div></div>
+      <div class="step-list-item"><span class="step-num">03</span><div><h4>Incisione nella piega naturale</h4><p>Sulla palpebra superiore l'incisione segue la piega naturale dell'occhio; su quella inferiore viene praticata a filo delle ciglia o internamente.</p></div></div>
+      <div class="step-list-item"><span class="step-num">04</span><div><h4>Rimozione di pelle e grasso in eccesso</h4><p>Viene asportata la quantità di tessuto necessaria a ottenere un profilo naturale, senza tensione eccessiva.</p></div></div>
+      <div class="step-list-item"><span class="step-num">05</span><div><h4>Sutura sottile</h4><p>Le suture vengono posizionate con estrema cura, data la delicatezza della zona, e rimosse dopo pochi giorni.</p></div></div>
     </div>
+    </div>
+    <div class="process-photos reveal">
+      <figure class="process-photo">
+        <img loading="lazy" src="/images/marcatura-preoperatoria-blefaroplastica-1.jpg" alt="Marcatura preoperatoria della piega palpebrale">
+        <figcaption>Marcatura preoperatoria della piega palpebrale</figcaption>
+      </figure>
+      <figure class="process-photo">
+        <img loading="lazy" src="/images/marcatura-preoperatoria-blefaroplastica-2.jpg" alt="Definizione dei punti di repere prima dell'intervento">
+        <figcaption>Definizione dei punti di repere prima dell'intervento</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -956,6 +972,14 @@ body.lightbox-open{overflow:hidden;}
     <div class="ba-simple reveal">
       <div class="ba-photo-wrap"><img loading="lazy" src="/images/viso-prima-della-blefaroplastica.jpg" alt="Viso prima della blefaroplastica" class="ba-photo"><span class="ba-label ba-label-before">Prima</span></div>
       <div class="ba-photo-wrap"><img loading="lazy" src="/images/viso-dopo-la-blefaroplastica.jpg" alt="Viso dopo la blefaroplastica" class="ba-photo"><span class="ba-label ba-label-after">Dopo</span></div>
+    </div>
+    <div class="ba-simple reveal">
+      <div class="ba-photo-wrap"><img loading="lazy" src="/images/occhi-prima-della-blefaroplastica-uomo.jpg" alt="Occhi prima della blefaroplastica, caso uomo" class="ba-photo"><span class="ba-label ba-label-before">Prima</span></div>
+      <div class="ba-photo-wrap"><img loading="lazy" src="/images/occhi-dopo-la-blefaroplastica-uomo.jpg" alt="Occhi dopo la blefaroplastica, caso uomo" class="ba-photo"><span class="ba-label ba-label-after">Dopo</span></div>
+    </div>
+    <div class="ba-simple reveal">
+      <div class="ba-photo-wrap"><img loading="lazy" src="/images/occhi-prima-della-blefaroplastica-donna.jpg" alt="Occhi prima della blefaroplastica, caso donna" class="ba-photo"><span class="ba-label ba-label-before">Prima</span></div>
+      <div class="ba-photo-wrap"><img loading="lazy" src="/images/occhi-dopo-la-blefaroplastica-donna.jpg" alt="Occhi dopo la blefaroplastica, caso donna" class="ba-photo"><span class="ba-label ba-label-after">Dopo</span></div>
     </div>
   </div>
 </section>
@@ -1024,12 +1048,10 @@ body.lightbox-open{overflow:hidden;}
     <div class="other-treatments-grid">
       <a href="/rinoplastica-milano">Rinoplastica</a>
       <a href="/otoplastica-milano">Otoplastica</a>
-      <a href="/mentoplastica-milano">Mentoplastica</a>
       <a href="/chirurgia-maxillo-facciale-milano">Chirurgia maxillo-facciale</a>
       <a href="/tossina-botulinica-milano">Tossina botulinica</a>
       <a href="/filler-milano">Filler</a>
       <a href="/biorivitalizzazione-milano">Biorivitalizzazione</a>
-      <a href="/fili-di-sospensione-milano">Fili di sospensione</a>
       <a href="/peeling-chimico-milano">Peeling chimico</a>
     </div>
   </div>
@@ -1085,13 +1107,11 @@ body.lightbox-open{overflow:hidden;}
               <option>Rinoplastica</option>
               <option>Otoplastica</option>
               <option selected>Blefaroplastica</option>
-              <option>Mentoplastica</option>
             </optgroup>
             <optgroup label="Medicina estetica">
               <option>Tossina botulinica</option>
               <option>Filler</option>
               <option>Biorivitalizzazione</option>
-              <option>Fili di sospensione</option>
               <option>Peeling chimico</option>
             </optgroup>
             <option>Prima visita conoscitiva</option>
@@ -1135,12 +1155,10 @@ body.lightbox-open{overflow:hidden;}
       <a href="/rinoplastica-milano">Rinoplastica</a>
       <a href="/otoplastica-milano">Otoplastica</a>
       <a href="/blefaroplastica-milano">Blefaroplastica</a>
-      <a href="/mentoplastica-milano">Mentoplastica</a>
       <a href="/chirurgia-maxillo-facciale-milano">Chirurgia maxillo-facciale</a>
       <a href="/tossina-botulinica-milano">Tossina botulinica</a>
       <a href="/filler-milano">Filler</a>
       <a href="/biorivitalizzazione-milano">Biorivitalizzazione</a>
-      <a href="/fili-di-sospensione-milano">Fili di sospensione</a>
       <a href="/peeling-chimico-milano">Peeling chimico</a>
     </div>
   </div>
