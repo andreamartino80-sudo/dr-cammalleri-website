@@ -472,21 +472,21 @@ section{position:relative;}
 .human-gallery{
   margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:180px;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:280px;
   gap:14px;
 }
 .hg-item{
   border-radius:2px;overflow:hidden;position:relative;
-  grid-row:span 1;
 }
-.hg-tall{grid-row:span 2;}
 .hg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
 .hg-item:hover img{transform:scale(1.04);}
 
 @media(max-width:900px){
-  .human-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
-  .hg-tall{grid-row:span 2;}
+  .human-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px;}
+}
+@media(max-width:600px){
+  .human-gallery{grid-template-columns:1fr;grid-auto-rows:240px;}
 }
 
 /* ===== STUDI ===== */
@@ -662,6 +662,39 @@ section{position:relative;}
   .cookie-banner{padding:18px 18px 20px;flex-direction:column;align-items:stretch;}
   .cookie-actions{justify-content:stretch;}
   .cookie-btn{flex:1;text-align:center;justify-content:center;}
+}
+
+/* ===== LIGHTBOX (zoom foto a tutto schermo) ===== */
+img.zoomable-img{cursor:zoom-in;}
+.lightbox-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(22,30,43,0.95);
+  display:none;align-items:center;justify-content:center;
+  padding:56px 24px;
+  cursor:zoom-out;
+  animation:lightboxFade .25s ease;
+}
+.lightbox-overlay.open{display:flex;}
+@keyframes lightboxFade{from{opacity:0;}to{opacity:1;}}
+.lightbox-img{
+  max-width:100%;max-height:100%;
+  object-fit:contain;
+  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  border-radius:2px;
+  cursor:default;
+}
+.lightbox-close{
+  position:absolute;top:20px;right:24px;
+  background:none;border:none;color:var(--white);
+  font-size:34px;line-height:1;font-family:var(--sans);font-weight:300;
+  cursor:pointer;padding:8px 12px;
+  transition:opacity .2s ease;
+}
+.lightbox-close:hover{opacity:0.7;}
+body.lightbox-open{overflow:hidden;}
+@media(max-width:640px){
+  .lightbox-overlay{padding:32px 16px;}
+  .lightbox-close{top:10px;right:12px;font-size:30px;}
 }
 </style>
 </head>
@@ -1035,15 +1068,6 @@ section{position:relative;}
   </div>
 
   <div class="wrap human-gallery reveal">
-    <div class="hg-item hg-tall">
-      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-piccolo-paziente-durante-una-missi.jpg" alt="Il Dott. Cammalleri con un piccolo paziente durante una missione chirurgica">
-    </div>
-    <div class="hg-item hg-tall">
-      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-neonato-in-braccio-durante-una-mis.jpg" alt="Il Dott. Cammalleri con un neonato in braccio durante una missione umanitaria">
-    </div>
-    <div class="hg-item">
-      <img loading="lazy" src="/images/equipe-medica-di-emergenza-sorrisi-durante-una-missione-chir.jpg" alt="Équipe medica di Emergenza Sorrisi durante una missione chirurgica">
-    </div>
     <div class="hg-item">
       <img loading="lazy" src="/images/il-dott-cammalleri-in-sala-operatoria-durante-una-missione-u.jpg" alt="Il Dott. Cammalleri in sala operatoria durante una missione umanitaria">
     </div>
@@ -1378,7 +1402,48 @@ section{position:relative;}
   </div>
 </div>
 
+<!-- ===== LIGHTBOX (zoom foto a tutto schermo) ===== -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Chiudi">&times;</button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg">
+</div>
+
 <script>
+// ===== LIGHTBOX (zoom foto a tutto schermo) =====
+(function(){
+  const overlay = document.getElementById('lightboxOverlay');
+  const overlayImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  if (!overlay || !overlayImg) return;
+
+  function openLightbox(src, alt){
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.classList.add('lightbox-open');
+  }
+  function closeLightbox(){
+    overlay.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+    overlayImg.src = '';
+  }
+  document.querySelectorAll('img:not(.logo-mark-img)').forEach(img => {
+    img.classList.add('zoomable-img');
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(img.currentSrc || img.src, img.alt);
+    });
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+
 // Respect reduced-motion preference for the OR video
 const orVideo = document.querySelector('.or-video');
 if (orVideo) {
