@@ -1358,7 +1358,7 @@ body.lightbox-open{overflow:hidden;}
         <textarea id="fMessage" name="fMessage" rows="4"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px;">Invia richiesta <span class="btn-arrow">→</span></button>
-      <p class="form-note">Il messaggio si aprirà nella tua app email predefinita, pronto per essere inviato a info@drmarcellocammalleri.it.</p>
+      <p class="form-note" id="bookingFormNote">La tua richiesta verrà inviata direttamente a info@drmarcellocammalleri.it.</p>
     </form>
   </div>
 </section>
@@ -1591,8 +1591,8 @@ baTabs.forEach(tab => {
   });
 });
 
-// Booking form -> mailto
-document.getElementById('bookingForm').addEventListener('submit', function(e){
+// Booking form -> invio reale via Web3Forms
+document.getElementById('bookingForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const f = e.target;
   const nome = f.fName.value.trim();
@@ -1603,18 +1603,53 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
   const trattamento = f.fTreatment.value;
   const messaggio = f.fMessage.value.trim();
 
-  const subject = `Richiesta di prenotazione — ${nome} ${cognome}`;
-  const body =
-`Nome: ${nome} ${cognome}
-Email: ${email}
-Telefono: ${telefono || '—'}
-Studio preferito: ${studio}
-Trattamento di interesse: ${trattamento}
+  const submitBtn = f.querySelector('button[type="submit"]');
+  const noteEl = document.getElementById('bookingFormNote');
+  const originalBtnHTML = submitBtn.innerHTML;
+  const originalNoteText = noteEl.textContent;
 
-Messaggio:
-${messaggio || '—'}`;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Invio in corso…';
 
-  window.location.href = `mailto:info@drmarcellocammalleri.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const payload = {
+    access_key: "83a4626e-6950-40e3-ab5c-0b78ed8a5580",
+    subject: `Richiesta di prenotazione — ${nome} ${cognome}`,
+    from_name: `${nome} ${cognome}`,
+    Nome: nome,
+    Cognome: cognome,
+    Email: email,
+    Telefono: telefono || '—',
+    "Studio preferito": studio,
+    "Trattamento di interesse": trattamento,
+    Messaggio: messaggio || '—'
+  };
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      submitBtn.innerHTML = 'Richiesta inviata ✓';
+      noteEl.textContent = 'Grazie! La tua richiesta è stata inviata correttamente. Ti risponderemo al più presto.';
+      f.reset();
+    } else {
+      throw new Error(result.message || 'Errore durante l\'invio');
+    }
+  } catch (err) {
+    submitBtn.innerHTML = 'Errore, riprova';
+    noteEl.textContent = 'Si è verificato un errore. Riprova oppure scrivici direttamente a info@drmarcellocammalleri.it.';
+    console.error('Errore invio form:', err);
+  } finally {
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      noteEl.textContent = originalNoteText;
+    }, 5000);
+  }
 });
 </script>
 
