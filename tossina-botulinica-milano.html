@@ -785,6 +785,21 @@ body{background:var(--bone);color:var(--ink);}
 /* foto a striscia (solo occhi): proporzioni naturali, niente ritaglio */
 .ba-compare-strip .ba-photo-wrap{height:auto;aspect-ratio:auto;}
 .ba-compare-strip .ba-photo{height:auto;object-fit:contain;}
+
+/* ===== PRIMA E DOPO (pagine trattamento) ===== */
+.ba-pairs{margin-top:36px;max-width:980px;display:flex;flex-direction:column;gap:22px;}
+.ba-pairs-narrow{max-width:640px;}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.ba-pair figure{margin:0;position:relative;}
+.ba-pair img{width:100%;height:auto;display:block;}
+.ba-pair figcaption{
+  position:absolute;bottom:10px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:700;padding:5px 12px;background:rgba(0,0,0,0.72);color:#fff;border-radius:20px;
+}
+.ba-pair figure:first-child figcaption{left:10px;}
+.ba-pair figure:last-child figcaption{right:10px;}
+.ba-pair-title{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--bronze-dark);text-transform:uppercase;margin:14px 0 -10px;}
+@media(max-width:640px){.ba-pair figcaption{font-size:9px;padding:3px 8px;bottom:6px;}}
 </style>
 <title>Tossina Botulinica — Dott. Marcello Cammalleri</title>
 <meta name="description" content="Trattamento con tossina botulinica con il Dott. Marcello Cammalleri: come si svolge la visita e la seduta, durata del risultato e domande frequenti.">
@@ -983,6 +998,29 @@ body{background:var(--bone);color:var(--ink);}
       <div class="step-list-item"><span class="step-num">03</span><div><h4>Indicazioni post-trattamento</h4><p>Al termine vengono fornite indicazioni pratiche, come evitare di massaggiare la zona o sdraiarsi nelle ore immediatamente successive.</p></div></div>
     </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== PRIMA E DOPO ===== -->
+<section class="content-section alt section-pad" id="prima-dopo">
+  <div class="wrap">
+    <div class="content-head reveal">
+      <span class="eyebrow">Prima &amp; Dopo</span>
+      <h2 class="content-title">Risultati reali con tossina botulinica.</h2>
+    </div>
+    <div class="ba-pairs reveal">
+      <h3 class="ba-pair-title">Rughe della fronte</h3>
+      <div class="ba-pair">
+        <figure><img loading="lazy" src="/images/fronte-prima-della-tossina-botulinica.jpg" alt="Rughe della fronte prima della tossina botulinica"><figcaption>Prima</figcaption></figure>
+        <figure><img loading="lazy" src="/images/fronte-dopo-la-tossina-botulinica.jpg" alt="Fronte distesa dopo la tossina botulinica"><figcaption>Dopo</figcaption></figure>
+      </div>
+      <h3 class="ba-pair-title">Glabella e zampe di gallina</h3>
+      <div class="ba-pair">
+        <figure><img loading="lazy" src="/images/zampe-di-gallina-prima-della-tossina-botulinica.jpg" alt="Rughe tra le sopracciglia e zampe di gallina prima della tossina botulinica"><figcaption>Prima</figcaption></figure>
+        <figure><img loading="lazy" src="/images/zampe-di-gallina-dopo-la-tossina-botulinica.jpg" alt="Glabella e contorno occhi dopo la tossina botulinica"><figcaption>Dopo</figcaption></figure>
+      </div>
+    </div>
+    <p class="photo-note">Risultati reali, pubblicati con il consenso dei pazienti. Ogni risultato è individuale.</p>
   </div>
 </section>
 

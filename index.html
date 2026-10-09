@@ -760,6 +760,24 @@ body{background:var(--bone);color:var(--ink);}
 /* foto a striscia (solo occhi): proporzioni naturali, niente ritaglio */
 .ba-compare-strip .ba-photo-wrap{height:auto;aspect-ratio:auto;}
 .ba-compare-strip .ba-photo{height:auto;object-fit:contain;}
+.ba-compare-contain .ba-photo-wrap{background:#000;}
+.ba-compare-contain .ba-photo{object-fit:contain;object-position:center;}
+
+/* ===== RECENSIONI ===== */
+.reviews{background:var(--bone);}
+.reviews-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;}
+.reviews-head > div{max-width:640px;}
+.reviews-count{font-size:14px;color:var(--text-muted);}
+.reviews-count strong{color:var(--ink);font-family:var(--serif);font-size:28px;font-weight:500;display:block;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px;}
+.review-card{background:var(--surface);padding:34px 32px;margin:0;display:flex;flex-direction:column;gap:18px;}
+.review-quote{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink);margin:0;}
+.review-quote::before{content:"\201C";display:block;font-size:44px;line-height:0.6;color:var(--bronze);margin-bottom:12px;}
+.review-meta{margin-top:auto;font-size:13px;color:var(--text-muted);}
+.review-meta strong{color:var(--ink);font-weight:600;}
+.review-tag{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bronze-dark);font-weight:600;}
+.reviews-cta{margin-top:40px;text-align:center;}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -972,28 +990,30 @@ body{background:var(--bone);color:var(--ink);}
       <button class="ba-tab active" data-target="case-naso">Rinofiller</button>
       <button class="ba-tab" data-target="case-blef">Blefaroplastica</button>
       <button class="ba-tab" data-target="case-lip1">Filler labbra</button>
+      <button class="ba-tab" data-target="case-botox">Tossina botulinica</button>
+      <button class="ba-tab" data-target="case-bio">Biorivitalizzazione</button>
     </div>
 
     <!-- CASE: NASO (rinofiller) -->
     <div class="ba-case active" id="case-naso">
-      <div class="ba-compare reveal">
+      <div class="ba-compare ba-compare-contain reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso2.jpg" alt="Profilo del naso prima del rinofiller, secondo caso" class="ba-photo" style="object-position:center 70%;">
+          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso5.jpg" alt="Profilo del naso prima del rinofiller, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso2.jpg" alt="Profilo del naso dopo il rinofiller, secondo caso" class="ba-photo" style="object-position:center 70%;">
+          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso5.jpg" alt="Profilo del naso dopo il rinofiller, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
 
-      <div class="ba-compare reveal">
+      <div class="ba-compare ba-compare-contain reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso3.jpg" alt="Profilo del naso prima del rinofiller, terzo caso" class="ba-photo" style="object-position:center 70%;">
+          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso4.jpg" alt="Profilo del naso prima del rinofiller, terzo caso" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso3.jpg" alt="Profilo del naso dopo il rinofiller, terzo caso" class="ba-photo" style="object-position:center 70%;">
+          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso4.jpg" alt="Profilo del naso dopo il rinofiller, terzo caso" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
@@ -1035,8 +1055,60 @@ body{background:var(--bone);color:var(--ink);}
       </div>
     </div>
 
+    <!-- CASE: TOSSINA BOTULINICA -->
+    <div class="ba-case" id="case-botox">
+      <div class="ba-compare ba-compare-strip reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/fronte-prima-della-tossina-botulinica.jpg" alt="Rughe della fronte prima della tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/fronte-dopo-la-tossina-botulinica.jpg" alt="Fronte distesa dopo la tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+      <div class="ba-compare ba-compare-strip reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/zampe-di-gallina-prima-della-tossina-botulinica.jpg" alt="Glabella e zampe di gallina prima della tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/zampe-di-gallina-dopo-la-tossina-botulinica.jpg" alt="Glabella e zampe di gallina dopo la tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CASE: BIORIVITALIZZAZIONE -->
+    <div class="ba-case" id="case-bio">
+      <div class="ba-compare ba-compare-contain reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/viso-prima-della-biorivitalizzazione-uomo.jpg" alt="Viso prima della biorivitalizzazione" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/viso-dopo-la-biorivitalizzazione-uomo.jpg" alt="Viso dopo la biorivitalizzazione" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+    </div>
+
     <!-- CASE: FILLER LABBRA 1 -->
     <div class="ba-case" id="case-lip1">
+      <div class="ba-compare ba-compare-contain reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/labbra-prima-del-filler-caso3.jpg" alt="Labbra prima del filler con acido ialuronico" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/labbra-dopo-il-filler-caso3.jpg" alt="Labbra dopo il filler con acido ialuronico" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
       <div class="ba-compare reveal">
         <div class="ba-photo-wrap">
           <img loading="lazy" src="/images/labbra-prima-del-filler.jpg" alt="Labbra prima del filler" class="ba-photo">
@@ -1066,6 +1138,49 @@ body{background:var(--bone);color:var(--ink);}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-right:2px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
         Segui @dr.marcellocammalleri
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENSIONI ===== -->
+<section id="recensioni" class="reviews section-pad">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div>
+        <span class="eyebrow">Cosa dicono di me</span>
+        <h2 class="about-title">Le parole<br>dei pazienti.</h2>
+        <p class="lede" style="margin-top:20px;">Estratti da recensioni verificate pubblicate su MioDottore.</p>
+      </div>
+      <p class="reviews-count"><strong>13 recensioni</strong>su MioDottore</p>
+    </div>
+    <div class="reviews-grid reveal">
+      <figure class="review-card">
+        <blockquote class="review-quote">Ho eseguito una rinoplastica chiusa mininvasiva dal Dott. Cammalleri.</blockquote>
+        <figcaption class="review-meta"><strong>C.A.C.</strong> · luglio 2026<br><span class="review-tag">Rinoplastica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Il risultato del trattamento è naturale e armonioso, proprio come desideravo.</blockquote>
+        <figcaption class="review-meta"><strong>A.D.</strong> · febbraio 2026<br><span class="review-tag">Tossina botulinica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Dopo i tre trattamenti il viso è apparso disteso, luminoso e rilassato.</blockquote>
+        <figcaption class="review-meta"><strong>M.D.</strong> · luglio 2026<br><span class="review-tag">Biorivitalizzazione</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Mi sono affidata al Dott Cammalleri per PRX, botox e filler alle labbra.</blockquote>
+        <figcaption class="review-meta"><strong>Simo</strong> · luglio 2026<br><span class="review-tag">Medicina estetica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Mi sono affidato al Dott. Cammalleri Marcello per un trattamento di Botox e PRX al viso.</blockquote>
+        <figcaption class="review-meta"><strong>S.B.</strong> · luglio 2026<br><span class="review-tag">Tossina botulinica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Studio molto bene organizzato, puntualità e professionalità.</blockquote>
+        <figcaption class="review-meta"><strong>D.D.</strong> · luglio 2026<br><span class="review-tag">Visita maxillo-facciale</span></figcaption>
+      </figure>
+    </div>
+    <div class="reviews-cta reveal">
+      <a href="https://www.miodottore.it/profilo/marcello-cammalleri-2" target="_blank" rel="noopener" class="btn btn-ghost">Leggi tutte le recensioni su MioDottore <span class="btn-arrow">↗</span></a>
     </div>
   </div>
 </section>

@@ -790,6 +790,21 @@ body{background:var(--bone);color:var(--ink);}
 /* foto a striscia (solo occhi): proporzioni naturali, niente ritaglio */
 .ba-compare-strip .ba-photo-wrap{height:auto;aspect-ratio:auto;}
 .ba-compare-strip .ba-photo{height:auto;object-fit:contain;}
+
+/* ===== PRIMA E DOPO (pagine trattamento) ===== */
+.ba-pairs{margin-top:36px;max-width:980px;display:flex;flex-direction:column;gap:22px;}
+.ba-pairs-narrow{max-width:640px;}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.ba-pair figure{margin:0;position:relative;}
+.ba-pair img{width:100%;height:auto;display:block;}
+.ba-pair figcaption{
+  position:absolute;bottom:10px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:700;padding:5px 12px;background:rgba(0,0,0,0.72);color:#fff;border-radius:20px;
+}
+.ba-pair figure:first-child figcaption{left:10px;}
+.ba-pair figure:last-child figcaption{right:10px;}
+.ba-pair-title{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--bronze-dark);text-transform:uppercase;margin:14px 0 -10px;}
+@media(max-width:640px){.ba-pair figcaption{font-size:9px;padding:3px 8px;bottom:6px;}}
 </style>
 <title>Biorivitalizzazione — Dott. Marcello Cammalleri</title>
 <meta name="description" content="Biorivitalizzazione con il Dott. Marcello Cammalleri: come funziona il trattamento, quante sedute servono, tempi di recupero e domande frequenti.">
@@ -981,6 +996,23 @@ body{background:var(--bone);color:var(--ink);}
     </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== PRIMA E DOPO ===== -->
+<section class="content-section alt section-pad" id="prima-dopo">
+  <div class="wrap">
+    <div class="content-head reveal">
+      <span class="eyebrow">Prima &amp; Dopo</span>
+      <h2 class="content-title">Risultati reali di biorivitalizzazione.</h2>
+    </div>
+    <div class="ba-pairs ba-pairs-narrow reveal">
+      <div class="ba-pair">
+        <figure><img loading="lazy" src="/images/viso-prima-della-biorivitalizzazione-uomo.jpg" alt="Viso prima della biorivitalizzazione"><figcaption>Prima</figcaption></figure>
+        <figure><img loading="lazy" src="/images/viso-dopo-la-biorivitalizzazione-uomo.jpg" alt="Viso dopo la biorivitalizzazione"><figcaption>Dopo</figcaption></figure>
+      </div>
+    </div>
+    <p class="photo-note">Risultati reali, pubblicati con il consenso dei pazienti. Ogni risultato è individuale.</p>
   </div>
 </section>
 
