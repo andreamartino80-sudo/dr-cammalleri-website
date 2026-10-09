@@ -6,7 +6,7 @@
 <title>Dott. Marcello Cammalleri — Chirurgia Estetica &amp; Medicina Estetica</title>
 <meta name="description" content="Dott. Marcello Cammalleri, specialista in chirurgia maxillo-facciale, chirurgia estetica e medicina estetica. Studi a Milano, Verona e Gela.">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#161E2B">
+<meta name="theme-color" content="#0A0A0A">
 <link rel="canonical" href="https://www.drmarcellocammalleri.it/">
 
 <!-- Favicon -->
@@ -317,7 +317,7 @@ section{position:relative;}
 }
 .lede-light{color:rgba(255,255,255,0.66);margin-top:20px;}
 .treatment-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
   background:rgba(255,255,255,0.14);
   margin-top:64px;border:1px solid rgba(255,255,255,0.14);
 }
@@ -326,7 +326,6 @@ section{position:relative;}
   transition:background .3s ease;
 }
 .treatment-card:hover{background:#263447;}
-.treatment-card:last-child{grid-column:span 2;}
 .tcard-icon{width:34px;height:34px;color:var(--bronze-light);margin-bottom:22px;}
 .treatment-card h3{color:var(--white);font-size:20px;font-weight:500;margin-bottom:12px;}
 .treatment-card p{color:rgba(255,255,255,0.6);font-size:14.5px;line-height:1.6;}
@@ -341,7 +340,6 @@ section{position:relative;}
 
 @media(max-width:900px){
   .treatment-grid{grid-template-columns:1fr;}
-  .treatment-card:last-child{grid-column:auto;}
 }
 
 /* ===== MEDICINE ===== */
@@ -462,6 +460,13 @@ section{position:relative;}
 }
 .pub-link:hover{background:var(--ink);color:var(--bone);border-color:var(--ink);}
 .pub-note{margin-top:28px;font-size:13px;color:var(--text-muted);}
+.pub-congress{margin-top:60px;}
+.pub-congress-title{font-family:var(--serif);font-size:21px;font-weight:400;margin-bottom:24px;}
+.pub-congress-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.pub-congress-item{margin:0;}
+.pub-congress-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;}
+.pub-congress-item figcaption{margin-top:10px;font-size:13px;color:var(--text-muted);}
+@media(max-width:640px){.pub-congress-grid{grid-template-columns:1fr;}}
 
 @media(max-width:640px){
   .pub-card{grid-template-columns:1fr;}
@@ -472,21 +477,21 @@ section{position:relative;}
 .human-gallery{
   margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:180px;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:280px;
   gap:14px;
 }
 .hg-item{
   border-radius:2px;overflow:hidden;position:relative;
-  grid-row:span 1;
 }
-.hg-tall{grid-row:span 2;}
 .hg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
 .hg-item:hover img{transform:scale(1.04);}
 
 @media(max-width:900px){
-  .human-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
-  .hg-tall{grid-row:span 2;}
+  .human-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px;}
+}
+@media(max-width:600px){
+  .human-gallery{grid-template-columns:1fr;grid-auto-rows:240px;}
 }
 
 /* ===== STUDI ===== */
@@ -663,6 +668,116 @@ section{position:relative;}
   .cookie-actions{justify-content:stretch;}
   .cookie-btn{flex:1;text-align:center;justify-content:center;}
 }
+
+/* ===== LIGHTBOX (zoom foto a tutto schermo) ===== */
+img.zoomable-img{cursor:zoom-in;}
+.lightbox-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(22,30,43,0.95);
+  display:none;align-items:center;justify-content:center;
+  padding:56px 24px;
+  cursor:zoom-out;
+  animation:lightboxFade .25s ease;
+}
+.lightbox-overlay.open{display:flex;}
+@keyframes lightboxFade{from{opacity:0;}to{opacity:1;}}
+.lightbox-img{
+  max-width:100%;max-height:100%;
+  object-fit:contain;
+  box-shadow:0 40px 90px rgba(0,0,0,0.5);
+  border-radius:2px;
+  cursor:default;
+}
+.lightbox-close{
+  position:absolute;top:20px;right:24px;
+  background:none;border:none;color:var(--white);
+  font-size:34px;line-height:1;font-family:var(--sans);font-weight:300;
+  cursor:pointer;padding:8px 12px;
+  transition:opacity .2s ease;
+}
+.lightbox-close:hover{opacity:0.7;}
+body.lightbox-open{overflow:hidden;}
+@media(max-width:640px){
+  .lightbox-overlay{padding:32px 16px;}
+  .lightbox-close{top:10px;right:12px;font-size:30px;}
+}
+
+/* ===== TEMA NERO (ottobre 2026) ===== */
+:root{
+  --ink:#EEEBE6;
+  --ink-soft:#C9C4BC;
+  --bone:#0A0A0A;
+  --bone-2:#111112;
+  --surface:#161618;
+  --surface-hover:#1F1F22;
+  --white:#FFFFFF;
+  --bronze:#B3A796;
+  --bronze-light:#D2C9BC;
+  --bronze-dark:#C4B8A8;
+  --blush:#18181A;
+  --line:rgba(255,255,255,0.13);
+  --text-muted:#A6A29C;
+  --deep:#050505;
+}
+body{background:var(--bone);color:var(--ink);}
+.site-header{background:rgba(10,10,10,0.88);}
+.btn-primary{background:var(--ink);color:#0A0A0A;}
+.btn-primary:hover{background:var(--bronze);color:#0A0A0A;}
+.btn-ghost:hover{color:#0A0A0A;}
+.btn-bronze{color:#0A0A0A;}
+.btn-bronze:hover{background:var(--bronze-light);}
+.ba-tab.active{color:#0A0A0A;}
+.dark-section{background:var(--surface);color:var(--ink);}
+.treatment-card,.studio-card{background:var(--surface);}
+.treatment-card:hover{background:var(--surface-hover);}
+.or-banner,.or-strip{background:#000;}
+.human-card,.pub-card,.booking-form,.info-item,.other-treatments-grid a{background:var(--surface);}
+.other-treatments-grid a:hover{background:var(--surface-hover);}
+.faq-section,.content-section{background:var(--bone);}
+.content-section.alt{background:var(--bone-2);}
+.faq-item.open .faq-icon{background:var(--bronze);color:#0A0A0A;border-color:var(--bronze);}
+.pub-link:hover{color:#0A0A0A;}
+.ba-label{background:rgba(0,0,0,0.72);color:#fff;}
+.fab-book{background:var(--bronze);color:#0A0A0A;}
+.fab-book:hover{background:var(--bronze-light);}
+.cookie-banner{background:var(--surface);border-top:1px solid var(--line);}
+.cookie-actions .btn-primary{background:var(--ink);color:#0A0A0A;}
+.lightbox-overlay{background:rgba(0,0,0,0.95);}
+.logo-badge{background:transparent;}
+.field input,.field select,.field textarea{background:#0A0A0A;color:var(--ink);}
+.field select option{background:#161618;color:var(--ink);}
+.hero-photo-frame,.page-hero-photo{box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);}
+
+/* ===== PRIMA/DOPO: sempre affiancati, anche da cellulare ===== */
+@media(max-width:640px){
+  .ba-compare{grid-template-columns:1fr 1fr;}
+  .ba-photo-wrap{height:auto;aspect-ratio:3/4;}
+  .ba-compare-wide .ba-photo-wrap{height:auto;aspect-ratio:4/3;}
+  .ba-label{bottom:10px;font-size:9.5px;padding:4px 9px;letter-spacing:0.1em;}
+  .ba-label-before{left:8px;}
+  .ba-label-after{right:8px;}
+}
+/* foto a striscia (solo occhi): proporzioni naturali, niente ritaglio */
+.ba-compare-strip .ba-photo-wrap{height:auto;aspect-ratio:auto;}
+.ba-compare-strip .ba-photo{height:auto;object-fit:contain;}
+.ba-compare-contain .ba-photo-wrap{background:#000;}
+.ba-compare-contain .ba-photo{object-fit:contain;object-position:center;}
+
+/* ===== RECENSIONI ===== */
+.reviews{background:var(--bone);}
+.reviews-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;}
+.reviews-head > div{max-width:640px;}
+.reviews-count{font-size:14px;color:var(--text-muted);}
+.reviews-count strong{color:var(--ink);font-family:var(--serif);font-size:28px;font-weight:500;display:block;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px;}
+.review-card{background:var(--surface);padding:34px 32px;margin:0;display:flex;flex-direction:column;gap:18px;}
+.review-quote{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink);margin:0;}
+.review-quote::before{content:"\201C";display:block;font-size:44px;line-height:0.6;color:var(--bronze);margin-bottom:12px;}
+.review-meta{margin-top:auto;font-size:13px;color:var(--text-muted);}
+.review-meta strong{color:var(--ink);font-weight:600;}
+.review-tag{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bronze-dark);font-weight:600;}
+.reviews-cta{margin-top:40px;text-align:center;}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -671,7 +786,7 @@ section{position:relative;}
 <header id="top" class="site-header">
   <div class="wrap header-inner">
     <a href="#top" class="logo">
-      <img loading="lazy" src="/images/logo-dr-marcello-cammalleri-navy.png" alt="Dott. Marcello Cammalleri — Chirurgia Maxillo-Facciale" class="logo-mark-img">
+      <img loading="lazy" src="/images/logo-dr-marcello-cammalleri-white.png" alt="Dott. Marcello Cammalleri — Chirurgia Maxillo-Facciale" class="logo-mark-img">
     </a>
     <nav class="main-nav">
       <a href="#chi-sono">Chi sono</a>
@@ -679,8 +794,8 @@ section{position:relative;}
       <a href="#medicina">Medicina Estetica</a>
       <a href="#prima-dopo">Prima &amp; Dopo</a>
       <a href="#missioni">Missioni Umanitarie</a>
-      <a href="#pubblicazioni">Pubblicazioni</a>
-      <a href="#studi">Studi</a>
+      <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
+      <a href="#sedi">Sedi</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a href="#prenota" class="btn btn-primary nav-cta">Prenota una visita</a>
@@ -697,8 +812,8 @@ section{position:relative;}
   <a href="#medicina">Medicina Estetica</a>
   <a href="#prima-dopo">Prima &amp; Dopo</a>
   <a href="#missioni">Missioni Umanitarie</a>
-  <a href="#pubblicazioni">Pubblicazioni</a>
-  <a href="#studi">Studi</a>
+  <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
+  <a href="#sedi">Sedi</a>
   <a href="#faq">FAQ</a>
   <a href="#prenota" class="btn btn-bronze" style="margin-top:12px;">Prenota una visita</a>
 </div>
@@ -818,12 +933,6 @@ section{position:relative;}
         <p>Ringiovanimento dello sguardo attraverso la correzione dell'eccesso cutaneo di palpebre superiori e inferiori.</p>
         <span class="tcard-arrow">→</span>
       </a>
-      <a href="/mentoplastica-milano" class="treatment-card reveal">
-        <svg viewBox="0 0 48 48" class="tcard-icon"><path d="M14 14c3 8 4 16 10 20 6-4 7-12 10-20" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-        <h3>Mentoplastica</h3>
-        <p>Riequilibrio del profilo mento-labiale per una migliore armonia tra naso, labbra e mento.</p>
-        <span class="tcard-arrow">→</span>
-      </a>
       <a href="/chirurgia-maxillo-facciale-milano" class="treatment-card reveal">
         <svg viewBox="0 0 48 48" class="tcard-icon"><circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M24 14v10l7 5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
         <h3>Chirurgia maxillo-facciale</h3>
@@ -859,11 +968,6 @@ section{position:relative;}
         <p>Idratazione profonda e stimolazione del collagene per una pelle più compatta e luminosa.</p>
         <span class="mrow-arrow">→</span>
       </a>
-      <a href="/fili-di-sospensione-milano" class="medicine-row">
-        <h3>Fili di sospensione</h3>
-        <p>Effetto di sollevamento immediato e progressivo su ovale del viso e collo, senza chirurgia.</p>
-        <span class="mrow-arrow">→</span>
-      </a>
       <a href="/peeling-chimico-milano" class="medicine-row">
         <h3>Peeling chimici</h3>
         <p>Rinnovamento della texture cutanea per macchie, cicatrici da acne e segni del tempo.</p>
@@ -884,48 +988,32 @@ section{position:relative;}
 
     <div class="ba-tabs reveal" role="tablist">
       <button class="ba-tab active" data-target="case-naso">Rinofiller</button>
-      <button class="ba-tab" data-target="case-naso2">Riprofilazione del naso</button>
       <button class="ba-tab" data-target="case-blef">Blefaroplastica</button>
-      <button class="ba-tab" data-target="case-occhi">Contorno occhi</button>
       <button class="ba-tab" data-target="case-lip1">Filler labbra</button>
-      <button class="ba-tab" data-target="case-lip2">Volumizzazione labbra</button>
-      <button class="ba-tab" data-target="case-viso">Ringiovanimento del viso</button>
+      <button class="ba-tab" data-target="case-botox">Tossina botulinica</button>
+      <button class="ba-tab" data-target="case-bio">Biorivitalizzazione</button>
     </div>
 
     <!-- CASE: NASO (rinofiller) -->
     <div class="ba-case active" id="case-naso">
-      <div class="ba-compare reveal">
+      <div class="ba-compare ba-compare-contain reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller.jpg" alt="Profilo del naso prima del rinofiller" class="ba-photo">
+          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso5.jpg" alt="Profilo del naso prima del rinofiller, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller.jpg" alt="Profilo del naso dopo il rinofiller" class="ba-photo">
-          <span class="ba-label ba-label-after">Dopo</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE: NASO 2 (riprofilazione) -->
-    <div class="ba-case" id="case-naso2">
-      <div class="ba-compare reveal">
-        <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-prima-della-riprofilazione.jpg" alt="Profilo del naso prima della riprofilazione" class="ba-photo">
-          <span class="ba-label ba-label-before">Prima</span>
-        </div>
-        <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-dopo-la-riprofilazione.jpg" alt="Profilo del naso dopo la riprofilazione" class="ba-photo">
+          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso5.jpg" alt="Profilo del naso dopo il rinofiller, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
 
-      <div class="ba-compare reveal">
+      <div class="ba-compare ba-compare-contain reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-prima-della-riprofilazione-2.jpg" alt="Profilo del naso prima della riprofilazione, secondo caso" class="ba-photo">
+          <img loading="lazy" src="/images/profilo-del-naso-prima-del-rinofiller-caso4.jpg" alt="Profilo del naso prima del rinofiller, terzo caso" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/profilo-del-naso-dopo-la-riprofilazione-2.jpg" alt="Profilo del naso dopo la riprofilazione, secondo caso" class="ba-photo">
+          <img loading="lazy" src="/images/profilo-del-naso-dopo-il-rinofiller-caso4.jpg" alt="Profilo del naso dopo il rinofiller, terzo caso" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
@@ -943,24 +1031,84 @@ section{position:relative;}
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
-    </div>
 
-    <!-- CASE: CONTORNO OCCHI (landscape) -->
-    <div class="ba-case" id="case-occhi">
-      <div class="ba-compare ba-compare-wide reveal">
+      <div class="ba-compare ba-compare-strip reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/contorno-occhi-prima-del-trattamento.jpg" alt="Contorno occhi prima del trattamento" class="ba-photo">
+          <img loading="lazy" src="/images/occhi-prima-della-blefaroplastica-uomo-2.jpg" alt="Occhi prima della blefaroplastica, caso uomo" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/contorno-occhi-dopo-il-trattamento.jpg" alt="Contorno occhi dopo il trattamento" class="ba-photo">
+          <img loading="lazy" src="/images/occhi-dopo-la-blefaroplastica-uomo-2.jpg" alt="Occhi dopo la blefaroplastica, caso uomo" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+      <div class="ba-compare ba-compare-strip reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/occhi-prima-della-blefaroplastica-donna-2.jpg" alt="Occhi prima della blefaroplastica, caso donna" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/occhi-dopo-la-blefaroplastica-donna-2.jpg" alt="Occhi dopo la blefaroplastica, caso donna" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
     </div>
 
+    <!-- CASE: TOSSINA BOTULINICA -->
+    <div class="ba-case" id="case-botox">
+      <div class="ba-compare ba-compare-strip reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/fronte-prima-della-tossina-botulinica.jpg" alt="Rughe della fronte prima della tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/fronte-dopo-la-tossina-botulinica.jpg" alt="Fronte distesa dopo la tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+      <div class="ba-compare ba-compare-strip reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/zampe-di-gallina-prima-della-tossina-botulinica.jpg" alt="Glabella e zampe di gallina prima della tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/zampe-di-gallina-dopo-la-tossina-botulinica.jpg" alt="Glabella e zampe di gallina dopo la tossina botulinica" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CASE: BIORIVITALIZZAZIONE -->
+    <div class="ba-case" id="case-bio">
+      <div class="ba-compare ba-compare-contain reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/viso-prima-della-biorivitalizzazione-uomo-v2.jpg" alt="Viso prima della biorivitalizzazione" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/viso-dopo-la-biorivitalizzazione-uomo-v2.jpg" alt="Viso dopo la biorivitalizzazione" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
+    </div>
+
     <!-- CASE: FILLER LABBRA 1 -->
     <div class="ba-case" id="case-lip1">
+      <div class="ba-compare ba-compare-contain reveal">
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/labbra-prima-del-filler-caso3.jpg" alt="Labbra prima del filler con acido ialuronico" class="ba-photo">
+          <span class="ba-label ba-label-before">Prima</span>
+        </div>
+        <div class="ba-photo-wrap">
+          <img loading="lazy" src="/images/labbra-dopo-il-filler-caso3.jpg" alt="Labbra dopo il filler con acido ialuronico" class="ba-photo">
+          <span class="ba-label ba-label-after">Dopo</span>
+        </div>
+      </div>
+
       <div class="ba-compare reveal">
         <div class="ba-photo-wrap">
           <img loading="lazy" src="/images/labbra-prima-del-filler.jpg" alt="Labbra prima del filler" class="ba-photo">
@@ -971,31 +1119,14 @@ section{position:relative;}
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
-    </div>
 
-    <!-- CASE: LABBRA 2 (volumizzazione) -->
-    <div class="ba-case" id="case-lip2">
       <div class="ba-compare reveal">
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/labbra-prima-della-volumizzazione.jpg" alt="Labbra prima della volumizzazione" class="ba-photo">
+          <img loading="lazy" src="/images/labbra-prima-della-volumizzazione.jpg" alt="Labbra prima del filler, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-before">Prima</span>
         </div>
         <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/labbra-dopo-la-volumizzazione.jpg" alt="Labbra dopo la volumizzazione" class="ba-photo">
-          <span class="ba-label ba-label-after">Dopo</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE: VISO (ringiovanimento) -->
-    <div class="ba-case" id="case-viso">
-      <div class="ba-compare reveal">
-        <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/viso-prima-del-trattamento-di-ringiovanimento.jpg" alt="Viso prima del trattamento di ringiovanimento" class="ba-photo">
-          <span class="ba-label ba-label-before">Prima</span>
-        </div>
-        <div class="ba-photo-wrap">
-          <img loading="lazy" src="/images/viso-dopo-il-trattamento-di-ringiovanimento.jpg" alt="Viso dopo il trattamento di ringiovanimento" class="ba-photo">
+          <img loading="lazy" src="/images/labbra-dopo-la-volumizzazione.jpg" alt="Labbra dopo il filler, secondo caso" class="ba-photo">
           <span class="ba-label ba-label-after">Dopo</span>
         </div>
       </div>
@@ -1007,6 +1138,49 @@ section{position:relative;}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-right:2px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
         Segui @dr.marcellocammalleri
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENSIONI ===== -->
+<section id="recensioni" class="reviews section-pad">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div>
+        <span class="eyebrow">Cosa dicono di me</span>
+        <h2 class="about-title">Le parole<br>dei pazienti.</h2>
+        <p class="lede" style="margin-top:20px;">Estratti da recensioni verificate pubblicate su MioDottore.</p>
+      </div>
+      <p class="reviews-count"><strong>13 recensioni</strong>su MioDottore</p>
+    </div>
+    <div class="reviews-grid reveal">
+      <figure class="review-card">
+        <blockquote class="review-quote">Ho eseguito una rinoplastica chiusa mininvasiva dal Dott. Cammalleri.</blockquote>
+        <figcaption class="review-meta"><strong>C.A.C.</strong> · luglio 2026<br><span class="review-tag">Rinoplastica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Il risultato del trattamento è naturale e armonioso, proprio come desideravo.</blockquote>
+        <figcaption class="review-meta"><strong>A.D.</strong> · febbraio 2026<br><span class="review-tag">Tossina botulinica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Dopo i tre trattamenti il viso è apparso disteso, luminoso e rilassato.</blockquote>
+        <figcaption class="review-meta"><strong>M.D.</strong> · luglio 2026<br><span class="review-tag">Biorivitalizzazione</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Mi sono affidata al Dott Cammalleri per PRX, botox e filler alle labbra.</blockquote>
+        <figcaption class="review-meta"><strong>Simo</strong> · luglio 2026<br><span class="review-tag">Medicina estetica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Mi sono affidato al Dott. Cammalleri Marcello per un trattamento di Botox e PRX al viso.</blockquote>
+        <figcaption class="review-meta"><strong>S.B.</strong> · luglio 2026<br><span class="review-tag">Tossina botulinica</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <blockquote class="review-quote">Studio molto bene organizzato, puntualità e professionalità.</blockquote>
+        <figcaption class="review-meta"><strong>D.D.</strong> · luglio 2026<br><span class="review-tag">Visita maxillo-facciale</span></figcaption>
+      </figure>
+    </div>
+    <div class="reviews-cta reveal">
+      <a href="https://www.miodottore.it/profilo/marcello-cammalleri-2" target="_blank" rel="noopener" class="btn btn-ghost">Leggi tutte le recensioni su MioDottore <span class="btn-arrow">↗</span></a>
     </div>
   </div>
 </section>
@@ -1035,15 +1209,6 @@ section{position:relative;}
   </div>
 
   <div class="wrap human-gallery reveal">
-    <div class="hg-item hg-tall">
-      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-piccolo-paziente-durante-una-missi.jpg" alt="Il Dott. Cammalleri con un piccolo paziente durante una missione chirurgica">
-    </div>
-    <div class="hg-item hg-tall">
-      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-neonato-in-braccio-durante-una-mis.jpg" alt="Il Dott. Cammalleri con un neonato in braccio durante una missione umanitaria">
-    </div>
-    <div class="hg-item">
-      <img loading="lazy" src="/images/equipe-medica-di-emergenza-sorrisi-durante-una-missione-chir.jpg" alt="Équipe medica di Emergenza Sorrisi durante una missione chirurgica">
-    </div>
     <div class="hg-item">
       <img loading="lazy" src="/images/il-dott-cammalleri-in-sala-operatoria-durante-una-missione-u.jpg" alt="Il Dott. Cammalleri in sala operatoria durante una missione umanitaria">
     </div>
@@ -1051,7 +1216,13 @@ section{position:relative;}
       <img loading="lazy" src="/images/pianificazione-di-un-intervento-durante-una-missione-chirurg.jpg" alt="Pianificazione di un intervento durante una missione chirurgica umanitaria">
     </div>
     <div class="hg-item">
-      <img loading="lazy" src="/images/chirurghi-volontari-di-emergenza-sorrisi-in-ospedale.jpg" alt="Chirurghi volontari di Emergenza Sorrisi in ospedale">
+      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-piccolo-paziente-in-sala-operatoria.jpg" alt="Il Dott. Cammalleri con un piccolo paziente in sala operatoria durante una missione">
+    </div>
+    <div class="hg-item">
+      <img loading="lazy" src="/images/il-dott-cammalleri-durante-un-intervento-chirurgico-in-missione.jpg" alt="Il Dott. Cammalleri durante un intervento chirurgico in missione">
+    </div>
+    <div class="hg-item">
+      <img loading="lazy" src="/images/il-dott-cammalleri-con-un-giovane-paziente-durante-una-missione.jpg" alt="Il Dott. Cammalleri con un giovane paziente durante una missione umanitaria">
     </div>
   </div>
 </section>
@@ -1060,7 +1231,7 @@ section{position:relative;}
 <section id="pubblicazioni" class="pub-section section-pad">
   <div class="wrap">
     <div class="pub-head reveal">
-      <span class="eyebrow">Pubblicazioni Scientifiche</span>
+      <span class="eyebrow">Pubblicazioni e Congressi</span>
       <h2 class="about-title">Ricerca e<br>letteratura clinica.</h2>
       <p class="lede" style="margin-top:22px;">Il Dott. Cammalleri contribuisce alla letteratura scientifica internazionale con studi e case report in ambito maxillo-facciale e chirurgico.</p>
     </div>
@@ -1103,12 +1274,25 @@ section{position:relative;}
       </div>
     </div>
 
+    <div class="pub-congress reveal">
+      <div class="pub-congress-grid">
+        <figure class="pub-congress-item">
+          <img loading="lazy" src="/images/il-dott-cammalleri-relatore-al-congresso-eacmfs-roma.jpg" alt="Il Dott. Cammalleri relatore al 27° EACMFS Congress, Roma">
+          <figcaption>27° EACMFS Congress — Roma, 2024</figcaption>
+        </figure>
+        <figure class="pub-congress-item">
+          <img loading="lazy" src="/images/il-dott-cammalleri-al-congresso-eafps-verona.jpg" alt="Il Dott. Cammalleri al 46° Annual Meeting EAFPS, Verona">
+          <figcaption>46° Annual Meeting EAFPS — Verona, 2023</figcaption>
+        </figure>
+      </div>
+    </div>
+
     <p class="pub-note reveal">Per l'elenco completo delle pubblicazioni, consulta il <a href="https://www.researchgate.net/scientific-contributions/Marcello-Cammalleri-2316539722" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--ink);">profilo del Dott. Cammalleri su ResearchGate</a>.</p>
   </div>
 </section>
 
 <!-- ===== STUDI ===== -->
-<section id="studi" class="studi section-pad dark-section">
+<section id="sedi" class="studi section-pad dark-section">
   <div class="wrap">
     <div class="treatments-head reveal">
       <span class="eyebrow eyebrow-light">Dove riceve</span>
@@ -1129,12 +1313,16 @@ section{position:relative;}
         <a href="#prenota" class="studio-link">Prenota a Milano <span class="btn-arrow">→</span></a>
       </div>
       <div class="studio-card reveal">
-        <div class="studio-map">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=10.9889582,45.434476100000005,10.9969582,45.4424761&marker=45.4384761,10.9929582&layer=mapnik" loading="lazy" title="Mappa studio di Verona"></iframe>
+        <div class="studio-photos">
+          <img loading="lazy" src="/images/sala-visite-dello-studio-di-verona.jpg" alt="Sala visite del Poliambulatorio DIEFFE, studio di Verona">
+          <img loading="lazy" src="/images/ambulatorio-dello-studio-di-verona.jpg" alt="Ambulatorio del Poliambulatorio DIEFFE, studio di Verona">
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=45.4384761,10.9929582" target="_blank" rel="noopener" class="studio-map-link">Apri in Google Maps ↗</a>
+        <div class="studio-map">
+          <iframe src="https://maps.google.com/maps?q=Poliambulatorio%20DIEFFE%2C%20Via%20Monte%20Pastello%2014c%2C%2037057%20San%20Giovanni%20Lupatoto%20VR&z=16&output=embed" loading="lazy" title="Mappa studio di Verona - Poliambulatorio DIEFFE"></iframe>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Poliambulatorio+DIEFFE+Via+Monte+Pastello+14c+San+Giovanni+Lupatoto" target="_blank" rel="noopener" class="studio-map-link">Apri in Google Maps ↗</a>
         <span class="studio-city">Verona</span>
-        <p class="studio-addr">Zona Piazza Bra (indirizzo esatto su appuntamento)<br>Verona (VR)</p>
+        <p class="studio-addr">Poliambulatorio DIEFFE<br>Via Monte Pastello 14c<br>37057 San Giovanni Lupatoto (VR)</p>
         <a href="#prenota" class="studio-link">Prenota a Verona <span class="btn-arrow">→</span></a>
       </div>
       <div class="studio-card reveal">
@@ -1286,7 +1474,7 @@ section{position:relative;}
           <label for="fStudio">Studio preferito</label>
           <select id="fStudio" name="fStudio">
             <option>Milano — Via Tiraboschi 1</option>
-            <option>Verona</option>
+            <option>Verona — San Giovanni Lupatoto, Poliambulatorio DIEFFE</option>
             <option>Gela</option>
             <option>Nessuna preferenza</option>
           </select>
@@ -1298,13 +1486,11 @@ section{position:relative;}
               <option>Rinoplastica</option>
               <option>Otoplastica</option>
               <option>Blefaroplastica</option>
-              <option>Mentoplastica</option>
             </optgroup>
             <optgroup label="Medicina estetica">
               <option>Tossina botulinica</option>
               <option>Filler</option>
               <option>Biorivitalizzazione</option>
-              <option>Fili di sospensione</option>
               <option>Peeling chimico</option>
             </optgroup>
             <option>Prima visita conoscitiva</option>
@@ -1316,7 +1502,7 @@ section{position:relative;}
         <textarea id="fMessage" name="fMessage" rows="4"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px;">Invia richiesta <span class="btn-arrow">→</span></button>
-      <p class="form-note">Il messaggio si aprirà nella tua app email predefinita, pronto per essere inviato a info@drmarcellocammalleri.it.</p>
+      <p class="form-note" id="bookingFormNote">La tua richiesta verrà inviata direttamente a info@drmarcellocammalleri.it.</p>
     </form>
   </div>
 </section>
@@ -1331,9 +1517,9 @@ section{position:relative;}
       <p class="footer-tag">Chirurgia Maxillo-Facciale · Chirurgia Estetica · Medicina Estetica</p>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Studi</p>
+      <p class="footer-col-title">Sedi</p>
       <p>Milano — Via Tiraboschi 1</p>
-      <p>Verona</p>
+      <p>Verona — Via Monte Pastello 14c, San Giovanni Lupatoto</p>
       <p>Gela</p>
     </div>
     <div class="footer-col">
@@ -1349,7 +1535,7 @@ section{position:relative;}
       <a href="#chirurgia">Chirurgia Estetica</a>
       <a href="#medicina">Medicina Estetica</a>
       <a href="#missioni">Missioni Umanitarie</a>
-      <a href="#pubblicazioni">Pubblicazioni</a>
+      <a href="#pubblicazioni">Pubblicazioni e Congressi</a>
       <a href="privacy.html">Informativa Privacy</a>
     </div>
   </div>
@@ -1360,7 +1546,7 @@ section{position:relative;}
 </footer>
 
 <!-- ===== FLOATING ACTIONS ===== -->
-<a href="https://wa.me/393000000000?text=Ciao%2C%20vorrei%20richiedere%20informazioni" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Scrivi su WhatsApp">
+<a href="https://wa.me/393485818133?text=Ciao%2C%20vorrei%20richiedere%20informazioni" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Scrivi su WhatsApp">
   <svg viewBox="0 0 32 32" width="26" height="26" fill="none"><path d="M16 3C9.1 3 3.5 8.6 3.5 15.5c0 2.3.6 4.5 1.8 6.4L3 29l7.3-2.2c1.8 1 3.9 1.5 5.7 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z" fill="#25D366"/><path d="M22.1 19.1c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-4.7-1-3.9-1.6-6.4-5.5-6.6-5.8-.2-.3-1.6-2.1-1.6-4 0-1.9 1-2.8 1.3-3.2.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.4 1.1 2.6.1.2.2.4 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.8z" fill="#fff"/></svg>
 </a>
 <a href="#prenota" class="fab fab-book">
@@ -1378,7 +1564,48 @@ section{position:relative;}
   </div>
 </div>
 
+<!-- ===== LIGHTBOX (zoom foto a tutto schermo) ===== -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Chiudi">&times;</button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg">
+</div>
+
 <script>
+// ===== LIGHTBOX (zoom foto a tutto schermo) =====
+(function(){
+  const overlay = document.getElementById('lightboxOverlay');
+  const overlayImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  if (!overlay || !overlayImg) return;
+
+  function openLightbox(src, alt){
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.classList.add('lightbox-open');
+  }
+  function closeLightbox(){
+    overlay.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+    overlayImg.src = '';
+  }
+  document.querySelectorAll('img:not(.logo-mark-img)').forEach(img => {
+    img.classList.add('zoomable-img');
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(img.currentSrc || img.src, img.alt);
+    });
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+
 // Respect reduced-motion preference for the OR video
 const orVideo = document.querySelector('.or-video');
 if (orVideo) {
@@ -1508,8 +1735,8 @@ baTabs.forEach(tab => {
   });
 });
 
-// Booking form -> mailto
-document.getElementById('bookingForm').addEventListener('submit', function(e){
+// Booking form -> invio reale via Web3Forms
+document.getElementById('bookingForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const f = e.target;
   const nome = f.fName.value.trim();
@@ -1520,18 +1747,53 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
   const trattamento = f.fTreatment.value;
   const messaggio = f.fMessage.value.trim();
 
-  const subject = `Richiesta di prenotazione — ${nome} ${cognome}`;
-  const body =
-`Nome: ${nome} ${cognome}
-Email: ${email}
-Telefono: ${telefono || '—'}
-Studio preferito: ${studio}
-Trattamento di interesse: ${trattamento}
+  const submitBtn = f.querySelector('button[type="submit"]');
+  const noteEl = document.getElementById('bookingFormNote');
+  const originalBtnHTML = submitBtn.innerHTML;
+  const originalNoteText = noteEl.textContent;
 
-Messaggio:
-${messaggio || '—'}`;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Invio in corso…';
 
-  window.location.href = `mailto:info@drmarcellocammalleri.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const payload = {
+    access_key: "83a4626e-6950-40e3-ab5c-0b78ed8a5580",
+    subject: `Richiesta di prenotazione — ${nome} ${cognome}`,
+    from_name: `${nome} ${cognome}`,
+    Nome: nome,
+    Cognome: cognome,
+    Email: email,
+    Telefono: telefono || '—',
+    "Studio preferito": studio,
+    "Trattamento di interesse": trattamento,
+    Messaggio: messaggio || '—'
+  };
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      submitBtn.innerHTML = 'Richiesta inviata ✓';
+      noteEl.textContent = 'Grazie! La tua richiesta è stata inviata correttamente. Ti risponderemo al più presto.';
+      f.reset();
+    } else {
+      throw new Error(result.message || 'Errore durante l\'invio');
+    }
+  } catch (err) {
+    submitBtn.innerHTML = 'Errore, riprova';
+    noteEl.textContent = 'Si è verificato un errore. Riprova oppure scrivici direttamente a info@drmarcellocammalleri.it.';
+    console.error('Errore invio form:', err);
+  } finally {
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      noteEl.textContent = originalNoteText;
+    }, 5000);
+  }
 });
 </script>
 
