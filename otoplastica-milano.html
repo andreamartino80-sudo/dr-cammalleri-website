@@ -795,6 +795,18 @@ body{background:var(--bone);color:var(--ink);}
 .step-photo figcaption{margin-top:10px;font-size:13px;color:var(--text-muted);}
 .site-video{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;display:block;background:#000;}
 @media(max-width:640px){.step-photo{margin-left:0;max-width:none;}}
+/* ===== PRIMA & DOPO (coppie) ===== */
+.ba-pairs{margin-top:36px;max-width:980px;display:flex;flex-direction:column;gap:22px;}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.ba-pair figure{margin:0;position:relative;}
+.ba-pair img{width:100%;height:auto;display:block;}
+.ba-pair figcaption{
+  position:absolute;bottom:10px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:700;padding:5px 12px;background:rgba(0,0,0,0.72);color:#fff;border-radius:20px;
+}
+.ba-pair figure:first-child figcaption{left:10px;}
+.ba-pair figure:last-child figcaption{right:10px;}
+@media(max-width:640px){.ba-pair figcaption{font-size:9px;padding:3px 8px;bottom:6px;}}
 </style>
 <title>Otoplastica — Dott. Marcello Cammalleri</title>
 <meta name="description" content="Otoplastica con il Dott. Marcello Cammalleri: correzione delle orecchie prominenti, come si svolge l'intervento, tempi di recupero e domande frequenti.">
@@ -999,8 +1011,29 @@ body{background:var(--bone);color:var(--ink);}
   </div>
 </section>
 
+<!-- ===== PRIMA & DOPO ===== -->
+<section class="content-section section-pad" id="prima-dopo">
+  <div class="wrap">
+    <div class="content-head reveal">
+      <span class="eyebrow">Prima &amp; Dopo</span>
+      <h2 class="content-title">Risultati reali di otoplastica.</h2>
+    </div>
+    <div class="ba-pairs reveal">
+      <div class="ba-pair">
+        <figure><img loading="lazy" src="/images/otoplastica-orecchie-viste-da-dietro-prima.jpg" alt="Orecchie viste da dietro prima dell'otoplastica"><figcaption>Prima</figcaption></figure>
+        <figure><img loading="lazy" src="/images/otoplastica-orecchie-viste-da-dietro-dopo.jpg" alt="Orecchie viste da dietro dopo l'otoplastica, padiglione riavvicinato al capo"><figcaption>Dopo</figcaption></figure>
+      </div>
+      <div class="ba-pair">
+        <figure><img loading="lazy" src="/images/otoplastica-viso-frontale-prima.jpg" alt="Viso in visione frontale prima dell'otoplastica, orecchie sporgenti"><figcaption>Prima</figcaption></figure>
+        <figure><img loading="lazy" src="/images/otoplastica-viso-frontale-dopo.jpg" alt="Viso in visione frontale dopo l'otoplastica"><figcaption>Dopo</figcaption></figure>
+      </div>
+    </div>
+    <p class="photo-note">Risultati reali, pubblicati con il consenso dei pazienti. Ogni risultato è individuale.</p>
+  </div>
+</section>
+
 <!-- ===== 5. RECUPERO E TEMPI ===== -->
-<section class="content-section section-pad">
+<section class="content-section alt section-pad">
   <div class="wrap">
     <div class="content-head reveal">
       <span class="eyebrow">Recupero e tempi</span>
@@ -1121,7 +1154,7 @@ body{background:var(--bone);color:var(--ink);}
           <select id="fStudio" name="fStudio">
             <option>Milano — Via Tiraboschi 1</option>
             <option>Verona — San Giovanni Lupatoto, Poliambulatorio DIEFFE</option>
-            <option>Gela</option>
+            <option>Gela — Via Ruggero Settimo 19</option>
             <option>Nessuna preferenza</option>
           </select>
         </div>
@@ -1165,7 +1198,7 @@ body{background:var(--bone);color:var(--ink);}
       <p class="footer-col-title">Studi</p>
       <p>Milano — Via Tiraboschi 1</p>
       <p>Verona — Via Monte Pastello 14c, San Giovanni Lupatoto</p>
-      <p>Gela</p>
+      <p>Gela — Via Ruggero Settimo 19</p>
     </div>
     <div class="footer-col">
       <p class="footer-col-title">Contatti</p>
